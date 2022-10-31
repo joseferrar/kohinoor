@@ -1,0 +1,25 @@
+.nav-primary {
+  background-color: #0061e0;
+  height: 40px;
+}
+
+.top-header-link {
+  color: #fed700;
+  font-size: .813rem;
+}
+
+.nav-divider {
+  color: #fff;
+  margin-top: 6px;
+}
+
+.top-header-link:hover {
+  color: #fff;
+}
+
+.nav-top-icon {
+  margin-top: 12px;
+  margin-right: -8px;
+  font-size: .813rem;
+  margin-left: 22px;
+}
