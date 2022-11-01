@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import '../../App.css'
+
 function BannerCarousel() {
   return (
     <div>

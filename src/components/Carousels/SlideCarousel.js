@@ -1,36 +1,6 @@
 import { useRef, useState } from "react";
+import { SliderData } from "../../data/SliderData";
 
-const Photos = [
-  "beach",
-  "space",
-  "office",
-  "house",
-  "shops",
-  "hat",
-  "park",
-  "food",
-  "club",
-  "dance",
-  "sun",
-  "stars",
-  "friends",
-  "bank",
-  "laptop",
-  "book",
-  "table",
-  "mountain",
-  "school",
-  "watch",
-  "bag",
-  "family",
-  "shops",
-  "forrest",
-  "city",
-  "bus",
-  "clock",
-  "train",
-  "bottle",
-];
 const SlideCarousel = () => {
   const elementRef = useRef(null);
   const [arrowDisable, setArrowDisable] = useState(true);
@@ -54,29 +24,50 @@ const SlideCarousel = () => {
 
   return (
     <>
-      <div class="button-contianer">
-        <button
+      <div className="button-contianer">
+        <i
+          className="fas fa-chevron-left"
           onClick={() => {
-            handleHorizantalScroll(elementRef.current, 25, 100, -10);
+            handleHorizantalScroll(elementRef.current, 25, 200, -10);
           }}
-          disabled={arrowDisable}
-        >
-          Left
-        </button>
-        <button
-          disabled={!arrowDisable}
-          onClick={() => {
-            handleHorizantalScroll(elementRef.current, 25, 100, 10);
+          style={{
+            color: "#fff",
+            fontSize: 20,
+            marginTop: 40,
+            backgroundColor: "#0061e0",
+            borderRadius: 15,
+            width: 30,
+            height: 30,
+            paddingTop: 5,
           }}
-        >
-          Right
-        </button>
+        ></i>
+
+        {arrowDisable && (
+          <i
+            className="fas fa-chevron-right"
+            onClick={() => {
+              handleHorizantalScroll(elementRef.current, 25, 100, 10);
+            }}
+            style={{
+              color: "#fff",
+              fontSize: 20,
+              marginTop: 40,
+              backgroundColor: "#0061e0",
+              borderRadius: 15,
+              width: 30,
+              height: 30,
+              paddingTop: 5,
+            }}
+          ></i>
+        )}
       </div>
-      <div class="img-container" ref={elementRef}>
-        {Photos.map((placement, i) => (
+      <div className="img-container" ref={elementRef}>
+        {SliderData.map((placement, i) => (
           <img
-            src="https://d330d33p6rktbx.cloudfront.net/filters:format(webp)/fit-in/120x120/images/air-conditioner_mtKMV9K.png"
+            key={i}
+            src={placement.img}
             alt="Air Conditioner"
+            className="carousel-img"
           />
         ))}
       </div>

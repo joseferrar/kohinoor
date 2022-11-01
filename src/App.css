@@ -14,7 +14,26 @@
 .img-container {
   display: flex;
   overflow: hidden;
-  width: 100%;
-  border: 5px solid #ffffff;
+  width: 90%;
   border-radius: 10px;
+  margin-top: -40px;
+}
+
+.slide-container {
+  background-color: #181818;
+  height: 800px;
+}
+
+.carousel-img {
+  margin-left: 120px;
+  width: 150px;
+  height: 60px;
+  transform: scale(1);
+  transition: all 0.3s;
+}
+
+.carousel-img:hover{
+  transform: scale(1.1);
+  filter: grayscale(1);
+  display: block;
 }
