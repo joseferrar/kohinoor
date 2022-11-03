@@ -120,6 +120,7 @@ function CollapsibleExample() {
               color: "#fed700",
               fontSize: 18,
               width: 100,
+              textAlign: "center"
             }}
           ></i>
           <p

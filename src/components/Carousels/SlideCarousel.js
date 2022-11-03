@@ -4,7 +4,6 @@ import { SliderData } from "../../data/SliderData";
 const SlideCarousel = () => {
   const elementRef = useRef(null);
   const [arrowDisable, setArrowDisable] = useState(true);
-  const unsplashed = "https://source.unsplash.com/200x200/";
 
   const handleHorizantalScroll = (element, speed, distance, step) => {
     let scrollAmount = 0;
@@ -39,6 +38,8 @@ const SlideCarousel = () => {
             width: 30,
             height: 30,
             paddingTop: 5,
+            marginLeft: -45,
+            textAlign: "center"
           }}
         ></i>
 
@@ -57,6 +58,7 @@ const SlideCarousel = () => {
               width: 30,
               height: 30,
               paddingTop: 5,
+              textAlign: "center"
             }}
           ></i>
         )}
