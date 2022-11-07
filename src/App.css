@@ -13,9 +13,18 @@
 .img-container {
   display: flex;
   overflow: hidden;
-  width: 90%;
+  width: 85%;
   border-radius: 10px;
   margin-top: -40px;
+}
+
+.product-container {
+  display: flex;
+  overflow: hidden;
+  width: 85%;
+  border-radius: 10px;
+  margin-top: -40px;
+  margin-left: 120px;
 }
 
 .slide-container {
@@ -31,6 +40,13 @@
   transition: all 0.3s;
 }
 
+.service-img {
+  width: 200px;
+  height: 70px;
+  transform: scale(1);
+  transition: all 0.3s;
+  margin-top: 50px;
+}
 .carousel-img:hover {
   transform: scale(1.1);
   filter: grayscale(1);

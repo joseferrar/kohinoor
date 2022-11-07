@@ -22,5 +22,11 @@ export const productData = [
         product_name: 'Whirlpool 6.5 kg 5 Star Fully-Automatic Top Loading Washing Machine with In-Built Heater (STAINWASH ULTRA 6.5, Grey) SWULTRA6.5SCGREY',
         product_img: "https://d330d33p6rktbx.cloudfront.net/filters:format(webp)/fit-in/209x209/images/New_Project_-_2021-12-02T135133.704.png",
         price: 20400
+    },
+    {
+        id: 5,
+        product_name: 'Samsung QA55QN85A 55 inch (139 cm) QN85A NEO QLED 4K Smart TV (2021)',
+        product_img: "https://d330d33p6rktbx.cloudfront.net/filters:format(webp)/fit-in/209x209/images/c8582e04-57ee-4b95-bd5d-4196da05ff4b_1.png",
+        price: 50400
     }
 ];

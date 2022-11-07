@@ -39,7 +39,7 @@ const SlideCarousel = () => {
             height: 30,
             paddingTop: 5,
             marginLeft: -45,
-            textAlign: "center"
+            textAlign: "center",
           }}
         ></i>
 
@@ -58,7 +58,7 @@ const SlideCarousel = () => {
               width: 30,
               height: 30,
               paddingTop: 5,
-              textAlign: "center"
+              textAlign: "center",
             }}
           ></i>
         )}

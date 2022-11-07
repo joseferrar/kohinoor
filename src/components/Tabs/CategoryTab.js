@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../App.css";
-import ProductCard from "../Cards/ProductCard";
+import ProductCarousel from "../Carousels/ProductCarousel";
 
 const tab0 = {
   color: "white",
@@ -49,7 +49,7 @@ function CategoryTab() {
           </p>
         </div>
       </div>
-      {index === 0 ? <ProductCard/> : <h1>hello</h1>}
+      {index === 0 ? <ProductCarousel/> : <h1>hello</h1>}
     </div>
   );
 }
