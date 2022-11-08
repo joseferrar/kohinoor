@@ -11,6 +11,7 @@ import BrandCard from "./components/Cards/BrandCard";
 import CategoryTab from "./components/Tabs/CategoryTab";
 import Footer from "./components/Footer/Footer";
 import Kohinoor from "./components/Banner/Kohinoor";
+import VideoCarousel from "./components/Carousels/VideoCarousel";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       <div style={{ marginLeft: 150, marginRight: 150, marginTop: 150 }}>
         <img src="https://d330d33p6rktbx.cloudfront.net/filters:format(webp)/images/static_banner/101.png" />
       </div>
+      <VideoCarousel/>
       <Footer />
     </div>
   );
