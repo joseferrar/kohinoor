@@ -1,43 +1,27 @@
 import React from "react";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Home from "./pages/Home";
+import Breadcrumb from "./components/Breadcrumb";
+import ProductDetails from "./pages/Details/ProductDetails";
+import Breadcrumb_config from "./components/Breadcrumb/config";
+import About from "./pages/About";
 import TopHeader from "./components/Headers/TopHeader";
 import FixedHeader from "./components/Headers/FixedHeader";
-import BannerCarousel from "./components/Carousels/BannerCarousel";
-import SlideCarousel from "./components/Carousels/SlideCarousel";
-import { Container } from "react-bootstrap";
-import DiscountCard from "./components/Cards/DiscountCard";
-import BrandCard from "./components/Cards/BrandCard";
-import CategoryTab from "./components/Tabs/CategoryTab";
-import Footer from "./components/Footer/Footer";
-import Kohinoor from "./components/Banner/Kohinoor";
-import VideoCarousel from "./components/Carousels/VideoCarousel";
 
 function App() {
+  const location = useLocation();
   return (
-    <div className="App">
+    <div>
       <TopHeader />
-
       <FixedHeader />
-      <BannerCarousel />
-
-      <div className="slide-container">
-        <Container>
-          <SlideCarousel />
-          <DiscountCard />
-        </Container>
-      </div>
-      <Container>
-        <BrandCard />
-      </Container>
-
-      <CategoryTab />
-      <Kohinoor />
-      <div style={{ marginLeft: 150, marginRight: 150, marginTop: 150 }}>
-        <img src="https://d330d33p6rktbx.cloudfront.net/filters:format(webp)/images/static_banner/101.png" />
-      </div>
-      <VideoCarousel/>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        {Breadcrumb_config.map((route, i) => (
+          <Route key={route} {...route} />
+        ))}
+      </Routes>
     </div>
   );
 }

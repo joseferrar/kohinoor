@@ -1,80 +1,73 @@
-import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
-import "./VideoCarousel.css";
+/* eslint-disable jsx-a11y/alt-text */
+import React, { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Stack from "react-bootstrap/Stack";
+import "../../App.css";
+import { VideoData } from "../../data/VideoData";
+import Carousel from 'react-grid-carousel'
 
-function App() {
+function VideoCarousel() {
+  const [ktv, setKtv] = useState("KTV");
+
+  const handleKtv = (value) => {
+    setKtv(value);
+  };
   return (
     <div>
-      <Carousel
-        showThumbs={true}
-        showStatus={false}
-        infiniteLoop
-        useKeyboardArrows
-        transitionTime={1000}
-        // axis="vertical"
-        // selectedItem={1}
-        width="600px"
-      >
-        <div className="slide-holder">
-          <iframe
-            width="1100px"
-            height="659px"
-            src="https://www.youtube.com/embed/8D-DM_GJ-6w"
-            title="Kohinoor Electronics - Kohinoor Consumer Electronic Show 2019  After Movie"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div className="slide-holder">
-          <iframe
-            width="1100px"
-            height="659px"
-            src="https://www.youtube.com/embed/XKfgdkcIUxw"
-            title="Kohinoor Electronics - Kohinoor Consumer Electronic Show 2019  After Movie"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div className="slide-holder">
-          <iframe
-            width="1100px"
-            height="659px"
-            src="https://www.youtube.com/embed/Ul6VOegwPQU"
-            title="Kohinoor Electronics - Kohinoor Consumer Electronic Show 2019  After Movie"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-        <div className="slide-holder">
-          <iframe
-            width="1100px"
-            height="659px"
-            src="https://www.youtube.com/embed/vFy53HBq_9I"
-            title="Kohinoor Electronics - Kohinoor Consumer Electronic Show 2019  After Movie"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-        <div className="slide-holder">
-          <iframe
-            width="1100px"
-            height="659px"
-            src="https://www.youtube.com/embed/b9Je-dURuoc"
-            title="Kohinoor Electronics - Kohinoor Consumer Electronic Show 2019  After Movie"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </Carousel>
+      <Container>
+        <Row className="mt-5">
+          <Col xs={8}>
+            <div className="embed-responsive embed-responsive-16by9">
+              {VideoData.map(
+                (item, index) =>
+                  item.name === ktv && (
+                    <img
+                      key={index}
+                      className="embed-responsive-item"
+                      src={item.url}
+                      width="1000"
+                      height="600"
+                      style={{ backgroundColor: "#000" }}
+                    />
+                  )
+              )}
+            </div>
+          </Col>
+          <Col xs={1}></Col>
+          <Col xs={2} className="ml-6">
+            <Stack style={{ height: 600, backgroundColor: "#151515" }}>
+              {VideoData.map((item, index) => (
+                <>
+                  <div
+                    key={index}
+                    style={{
+                      height: 100,
+                      backgroundColor: ktv === item.name && "#0061e0",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => handleKtv(item.name)}
+                  >
+                    <p
+                      className="m-2 text-center"
+                      style={{
+                        color: "#fff",
+                        fontSize: 18,
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {item.name}
+                    </p>
+                  </div>
+                  <hr style={{ color: "#fff" }} />
+                </>
+              ))}
+            </Stack>
+          </Col>
+        </Row>
+        
+      </Container>
     </div>
   );
 }
-export default App;
+
+export default VideoCarousel;
