@@ -8,6 +8,10 @@ const Breadcrumbs = () => {
   return (
     <div className="breadcrumbs" style={{ display: "flex" }}>
       {breadcrumbs.map(({ breadcrumb, match }, index) => {
+       const data = breadcrumb.props.children?.split('%')
+       const num = data[1]?.replace(/[0-9]/g, ' ')
+       const final = data[0] + num 
+       
         return (
           <div
             className="bc"
@@ -16,9 +20,9 @@ const Breadcrumbs = () => {
           >
             <Link
               to={match.pathname || ""}
-              style={{ color: "gray", fontSize: 12 }}
+              style={{ color: "gray", fontSize: 12, textDecoration: "none"}}
             >
-              {breadcrumb}
+              {final.replace('undefined', "")}
             </Link>
             {index < breadcrumbs.length - 1 && " > "}
           </div>

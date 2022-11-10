@@ -61,8 +61,9 @@ const ProductCarousel = () => {
       <div className="product-container" ref={ref}>
         {productData.map((placement, i) => (
           <Link
-            to={`/product/${placement?.type?.replace("%20", " ")}`}
+            to={`/product/${placement?.type}`}
             style={{ textDecoration: "none" }}
+            state={{placement}}
           >
             <ProductCard
               kay={i}
