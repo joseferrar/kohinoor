@@ -5,10 +5,10 @@ import Breadcrumb from "../../components/Breadcrumb";
 import ReactImageMagnify from "react-image-magnify";
 import Divider from "../../components/Divider";
 import RateList from "../../components/Lists/RateList";
+import DetailTab from "../../components/Tabs/DetailTab";
 
 function ProductDetails() {
   const location = useLocation();
-  console.log(location.pathname.replaceAll("%20", " "));
 
   const data = location.state;
   console.log(data);
@@ -20,12 +20,15 @@ function ProductDetails() {
   const imageProps = {
     smallImage: {
       alt: "Phasellus laoreet",
-      isFluidWidth: true,
+      isFluidWidth: false,
+      width: 450,
+      height: 500,
       src: idx,
     },
     largeImage: {
       src: idx,
-      width: 1200,
+      srcSet: idx,
+      width: 1400,
       height: 1800,
     },
     enlargedImageContainerStyle: { background: "#fff", zIndex: 9 },
@@ -39,7 +42,11 @@ function ProductDetails() {
             {data?.placement?.subImg?.map((item, index) => (
               <div
                 style={{ width: 85 }}
-                className={item === idx ? "border border-primary" : "border  border-light"}
+                className={
+                  item === idx
+                    ? "border border-primary"
+                    : "border  border-light"
+                }
                 onClick={() => {
                   eventClick(item);
                 }}
@@ -49,7 +56,10 @@ function ProductDetails() {
             ))}
           </Stack>
           {/* <img src={idx} width="500" height="500" style={{marginTop: -30}}/> */}
-          <ReactImageMagnify {...imageProps} style={{ marginRight: 60 }} />
+          <ReactImageMagnify
+            {...imageProps}
+            style={{ marginRight: 60, width: 1500 }}
+          />
         </Col>
 
         <Col sm={5}>
@@ -250,13 +260,80 @@ function ProductDetails() {
             </ul>
           </div>
           <Divider />
-          <img src="https://www.kohinoorelectronics.com/static/assets/svg/info/1_free_Delivery.svg" width={"35"} height={"35"}/>
-          <p style={{color: "#0062bd", fontSize: 12, marginLeft: -6}}>Fast Delivery</p>
+          <img
+            alt="img"
+            src="https://www.kohinoorelectronics.com/static/assets/svg/info/1_free_Delivery.svg"
+            width={"35"}
+            height={"35"}
+          />
+          <p style={{ color: "#0062bd", fontSize: 12, marginLeft: -6 }}>
+            Fast Delivery
+          </p>
           <Divider />
+          <a href="#" style={{ fontSize: 12, textDecoration: "none", color: "#000", fontWeight: "bold" }}>
+            Compare with similar items
+          </a>
         </Col>
 
-        <Col>sm=8</Col>
+        <Col sm={2}>
+          <div>
+            <Button
+              variant="warning"
+              style={{
+                borderRadius: 25,
+                display: "flex",
+                width: 100,
+                height: 36,
+                marginLeft: 240,
+              }}
+            >
+              <i className="fas fa-share-alt mt-1"></i>
+              <p style={{ marginLeft: 12, fontWeight: 600 }}>Share</p>
+            </Button>
+
+            <div
+              className="mt-4 border p-2"
+              style={{ width: 350, height: 150 }}
+            >
+              <p style={{ fontWeight: 700, marginLeft: 20 }}>With Exchange</p>
+              <p
+                style={{
+                  fontWeight: 700,
+                  fontSize: 17,
+                  color: "#0062bd",
+                  marginLeft: 20,
+                }}
+              >
+                Up to ₹ 3,000.00 off
+              </p>
+              <Button
+                variant="outline-dark"
+                className="border"
+                size="lg"
+                style={{
+                  width: 300,
+                  marginLeft: 20,
+                  fontWeight: 700,
+                  borderRadius: 30,
+                  height: 45,
+                }}
+              >
+                <p
+                  style={{
+                    fontWeight: 700,
+                    marginLeft: 8,
+                    fontSize: 16,
+                    top: 40,
+                  }}
+                >
+                  Exchange Offers
+                </p>
+              </Button>
+            </div>
+          </div>
+        </Col>
       </Row>
+      <DetailTab/>
     </Container>
   );
 }

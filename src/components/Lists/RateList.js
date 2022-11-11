@@ -5,9 +5,10 @@ function RateList() {
   return (
     <div>
       <ListGroup>
-        <ListGroup.Item style={{height: 42}}>
+        <ListGroup.Item style={{ height: 42 }}>
           <div style={{ display: "flex" }}>
             <img
+              alt="img"
               src="https://www.kohinoorelectronics.com/static/assets/img/icons/offers.png"
               width={25}
               height={25}
@@ -25,7 +26,7 @@ function RateList() {
             <p style={{ fontSize: 14, marginLeft: 8 }}>with 3 offers</p>
           </div>
         </ListGroup.Item>
-        <ListGroup.Item style={{height: 40}}>
+        <ListGroup.Item style={{ height: 40 }}>
           <div style={{ display: "flex" }}>
             <p
               style={{
@@ -42,7 +43,7 @@ function RateList() {
             </p>
           </div>
         </ListGroup.Item>
-        <ListGroup.Item style={{height: 40}}>
+        <ListGroup.Item style={{ height: 40 }}>
           <div style={{ display: "flex" }}>
             <p
               style={{
@@ -59,7 +60,7 @@ function RateList() {
             </p>
           </div>
         </ListGroup.Item>
-        <ListGroup.Item style={{height: 40}}>
+        <ListGroup.Item style={{ height: 40 }}>
           {" "}
           <div style={{ display: "flex" }}>
             <p

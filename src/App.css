@@ -195,3 +195,18 @@ ul.control-dots {
   content: "apple";
   color: violet;
 }
+
+.rating_star_div {
+  display: flex;
+  align-items: center;
+}
+
+.rating_text_div {
+  margin-top: 20px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333e48;
+  text-align: left;
+  background-color: #fff;
+}
