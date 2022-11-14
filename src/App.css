@@ -210,3 +210,8 @@ ul.control-dots {
   text-align: left;
   background-color: #fff;
 }
+
+.login:focus {
+  border-color: red !important;
+  border-width: 0px !important;
+}

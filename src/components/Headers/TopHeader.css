@@ -4,7 +4,7 @@
 }
 
 .top-header-link {
-  color: #fed700;
+  color: #fed700 !important;
   font-size: .813rem;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .top-header-link:hover {
-  color: #fff;
+  color: #fff !important;
 }
 
 .nav-top-icon {

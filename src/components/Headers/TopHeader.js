@@ -1,13 +1,12 @@
+import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
+import LoginModal from "../Modal/LoginModal";
 import "./TopHeader.css";
 
 function TopHeader() {
+  const [show, setShow] = useState(false);
   return (
-    <Nav
-      activeKey="/home"
-      className="justify-content-center nav-primary"
-      onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-    >
+    <Nav activeKey="/home" className="justify-content-center nav-primary">
       <Nav.Item className="d-flex" style={{ marginLeft: 800 }}>
         <i className="fas fa-map-marker-alt top-header-link nav-top-icon"></i>
 
@@ -38,7 +37,7 @@ function TopHeader() {
         <p className="nav-divider">|</p>
       </Nav.Item>
 
-      <Nav.Item className="d-flex">
+      <Nav.Item className="d-flex" onClick={() => setShow(true)}>
         <i className="far fa-user  top-header-link nav-top-icon"></i>
         <Nav.Link eventKey="link-2" className="top-header-link">
           Register / Sign in
@@ -53,6 +52,7 @@ function TopHeader() {
         </Nav.Link>
         <p className="nav-divider">|</p>
       </Nav.Item>
+      <LoginModal show={show} setShow={setShow} />
     </Nav>
   );
 }
