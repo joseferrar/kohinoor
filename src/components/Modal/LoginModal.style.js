@@ -44,6 +44,7 @@ export const userIcon = {
 export const form_control = {
   borderRadius: "20px",
   borderWidth: 0,
+  outline: "none",
 };
 
 export const inputGroup2 = {

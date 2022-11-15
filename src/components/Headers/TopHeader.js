@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
+import { useNavigate } from "react-router";
 import LoginModal from "../Modal/LoginModal";
 import "./TopHeader.css";
 
@@ -31,7 +32,7 @@ function TopHeader() {
 
       <Nav.Item className="d-flex">
         <i className="fas fa-phone-alt  top-header-link nav-top-icon"></i>
-        <Nav.Link eventKey="link-2" className="top-header-link">
+        <Nav.Link eventKey="link-2" className="top-header-link"  href="/contact us">
           Contact Us
         </Nav.Link>
         <p className="nav-divider">|</p>

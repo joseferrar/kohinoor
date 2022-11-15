@@ -27,13 +27,38 @@ import {
   social_flex,
   userIcon,
 } from "./LoginModal.style";
+import axios from "axios";
 
 function LoginModal({ show, setShow }) {
   const handleClose = () => setShow(false);
   const [authType, setAuthType] = useState("login");
+
+  const onRegister = () => {
+    var formData = new FormData();
+    formData.append('uname', "godwin");
+    formData.append('mobile', "975675675");
+    formData.append('email', "godwin@gmail.com");
+    formData.append('password', "ttrtrt");
+    formData.append('occupation', "student");
+    // const postData = {
+    //   uname: "godwin",
+    //   mobile: "9534534342432",
+    //   email: "godwin@gmail.com",
+    //   password: "test123546",
+    //   occupation: "student"
+    // }
+    axios
+      .post("http://192.168.1.195:5000/signup/",formData)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div>
-      <Modal show={show} size="lg">
+      <Modal show={show} size="lg" style={{marginTop: 150}}>
         <i class="fas fa-times" style={modal} onClick={handleClose}></i>
         <Modal.Body style={modalBody}>
           <Row>
@@ -50,9 +75,9 @@ function LoginModal({ show, setShow }) {
             </Col>
 
             {authType === "login" ? (
-              <Col xs={6} className="mt-3">
-                <div>
-                  <InputGroup
+              <Col xs={6} className="mt-5">
+                <div className="inp-grp">
+                  {/* <InputGroup
                     className="mb-3 d-flex flex-row align-items-center m-4 border"
                     style={inputGroup1}
                   >
@@ -61,22 +86,56 @@ function LoginModal({ show, setShow }) {
                     <Form.Control
                       placeholder="Username"
                       className="login"
-                      style={form_control}
                     />
-                  </InputGroup>
+                  </InputGroup> */}
+                  <i
+                    class="fas fa-user"
+                    style={{
+                      position: "absolute",
+                      padding: "10px",
+                      fontSize: "16px",
+                      borderRight: "1px solid grey",
+                      margin: "5px",
+                    }}
+                  ></i>
+                  <input
+                    type="text"
+                    style={{
+                      padding: "10px",
+                      border: "solid 1px grey",
+                      borderRadius: "20px",
+                      width: "400px",
+                      maxWidth: "100%",
+                      paddingLeft: "50px",
+                    }}
+                    placeholder="Enter Email/ Mobile number"
+                  />
+                  <br />
+                  <br />
 
-                  <InputGroup
-                    className="mb-3 d-flex flex-row align-items-center m-4 border"
-                    style={inputGroup2}
-                  >
-                    <i className="fas fa-lock" style={userIcon}></i>
+                  <i
+                    class="fas fa-lock"
+                    style={{
+                      position: "absolute",
+                      padding: "10px",
+                      margin: "5px",
+                      fontSize: "16px",
+                      borderRight: "1px solid grey",
+                    }}
+                  ></i>
+                  <input
+                    type="text"
+                    placeholder="Enter Password"
+                    style={{
+                      padding: "10px",
+                      border: "solid 1px grey",
+                      borderRadius: "20px",
+                      width: "400px",
+                      paddingLeft: "50px",
+                      maxWidth: "100%",
+                    }}
+                  />
 
-                    <Form.Control
-                      placeholder="Password"
-                      className="login"
-                      style={form_control}
-                    />
-                  </InputGroup>
                   <a href="/" style={forgot}>
                     Forgot Password?
                   </a>
@@ -175,7 +234,7 @@ function LoginModal({ show, setShow }) {
                     style={form_control}
                   />
                 </InputGroup>
-                <Button variant="primary" style={loginBtn}>
+                <Button variant="primary" style={loginBtn} onClick={onRegister}>
                   Get Started
                 </Button>
                 <div style={qus}>

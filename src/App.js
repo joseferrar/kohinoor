@@ -8,6 +8,7 @@ import Breadcrumb_config from "./components/Breadcrumb/config";
 import About from "./pages/About";
 import TopHeader from "./components/Headers/TopHeader";
 import FixedHeader from "./components/Headers/FixedHeader";
+import Contact from "./pages/Contact";
 
 function App() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact us" element={<Contact />} />
         {Breadcrumb_config.map((route, i) => (
           <Route key={route} {...route} />
         ))}

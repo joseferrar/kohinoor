@@ -1,4 +1,5 @@
 import react from "react";
+import Contact from "../../pages/Contact";
 import ProductDetails from "../../pages/Details/ProductDetails";
 import Home from "../../pages/Home";
 
@@ -14,6 +15,10 @@ const Breadcrumb_config = [
   {
     path: "/product/:id",
     element: <ProductDetails />,
+  },
+  {
+    path: "/contact us",
+    element: <Contact />,
   },
 ];
 
