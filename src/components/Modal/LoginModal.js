@@ -33,13 +33,20 @@ function LoginModal({ show, setShow }) {
   const handleClose = () => setShow(false);
   const [authType, setAuthType] = useState("login");
 
-  const onRegister = () => {
+  const [username, setUserName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [occupation, setOccpation] = useState("");
+
+  const onRegister = (e) => {
+    e.preventDefault()
     var formData = new FormData();
-    formData.append('uname', "godwin");
-    formData.append('mobile', "975675675");
-    formData.append('email', "godwin@gmail.com");
-    formData.append('password', "ttrtrt");
-    formData.append('occupation', "student");
+    formData.append("uname", username);
+    formData.append("mobile", mobile);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("occupation", occupation);
     // const postData = {
     //   uname: "godwin",
     //   mobile: "9534534342432",
@@ -48,7 +55,7 @@ function LoginModal({ show, setShow }) {
     //   occupation: "student"
     // }
     axios
-      .post("http://192.168.1.195:5000/signup/",formData)
+      .post("http://127.0.0.1:8000/signup/", formData)
       .then((res) => {
         console.log(res.data);
       })
@@ -58,7 +65,7 @@ function LoginModal({ show, setShow }) {
   };
   return (
     <div>
-      <Modal show={show} size="lg" style={{marginTop: 150}}>
+      <Modal show={show} size="lg" style={{ marginTop: 150 }}>
         <i class="fas fa-times" style={modal} onClick={handleClose}></i>
         <Modal.Body style={modalBody}>
           <Row>
@@ -69,7 +76,7 @@ function LoginModal({ show, setShow }) {
                 <img
                   src="https://d203rnyfn54hc2.cloudfront.net/image/login_img.png"
                   alt="com"
-                  style={{ marginTop: "80px" }}
+                  style={{ marginTop: "200px" }}
                 />
               </div>
             </Col>
@@ -100,6 +107,7 @@ function LoginModal({ show, setShow }) {
                   ></i>
                   <input
                     type="text"
+                    className="login"
                     style={{
                       padding: "10px",
                       border: "solid 1px grey",
@@ -125,6 +133,7 @@ function LoginModal({ show, setShow }) {
                   ></i>
                   <input
                     type="text"
+                    className="login"
                     placeholder="Enter Password"
                     style={{
                       padding: "10px",
@@ -174,66 +183,145 @@ function LoginModal({ show, setShow }) {
               </Col>
             ) : (
               <Col xs={6} className="mt-3">
-                <InputGroup
-                  className="mb-3 d-flex flex-row align-items-center m-4 border"
-                  style={inputGroup1}
-                >
-                  <i className="fas fa-user" style={userIcon}></i>
-
-                  <Form.Control
+                <div className="m-4">
+                  <i
+                    class="fas fa-user"
+                    style={{
+                      position: "absolute",
+                      padding: "10px",
+                      margin: "5px",
+                      fontSize: "16px",
+                      borderRight: "1px solid grey",
+                    }}
+                  ></i>
+                  <input
+                    type="text"
+                    className="login"
                     placeholder="Name"
-                    className="login"
-                    style={form_control}
+                    value={username}
+                    onChange={(e) => setUserName(e.target.value)}
+                    style={{
+                      padding: "10px",
+                      border: "solid 1px grey",
+                      borderRadius: "20px",
+                      width: "500px",
+                      paddingLeft: "50px",
+                      maxWidth: "114%",
+                    }}
                   />
-                </InputGroup>
-                <InputGroup
-                  className="mb-3 d-flex flex-row align-items-center m-4 border"
-                  style={inputGroup1}
-                >
-                  <i className="fas fa-mobile" style={userIcon}></i>
-
-                  <Form.Control
+                </div>
+                <div className="m-4">
+                  <i
+                    class="fas fa-mobile"
+                    style={{
+                      position: "absolute",
+                      padding: "10px",
+                      margin: "5px",
+                      fontSize: "16px",
+                      borderRight: "1px solid grey",
+                    }}
+                  ></i>
+                  <input
+                    type="text"
+                    className="login"
                     placeholder="Mobile"
-                    className="login"
-                    style={form_control}
+                    value={mobile}
+                    onChange={(e) => setMobile(e.target.value)}
+                    style={{
+                      padding: "10px",
+                      border: "solid 1px grey",
+                      borderRadius: "20px",
+                      width: "500px",
+                      paddingLeft: "50px",
+                      maxWidth: "114%",
+                    }}
                   />
-                </InputGroup>
-                <InputGroup
-                  className="mb-3 d-flex flex-row align-items-center m-4 border"
-                  style={inputGroup1}
-                >
-                  <i className="fas fa-envelope" style={userIcon}></i>
+                </div>
 
-                  <Form.Control
+                <div className="m-4">
+                  <i
+                    class="fas fa-envelope"
+                    style={{
+                      position: "absolute",
+                      padding: "10px",
+                      margin: "5px",
+                      fontSize: "16px",
+                      borderRight: "1px solid grey",
+                    }}
+                  ></i>
+                  <input
+                    type="text"
+                    className="login"
                     placeholder="Email"
-                    className="login"
-                    style={form_control}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    style={{
+                      padding: "10px",
+                      border: "solid 1px grey",
+                      borderRadius: "20px",
+                      width: "500px",
+                      paddingLeft: "50px",
+                      maxWidth: "114%",
+                    }}
                   />
-                </InputGroup>
-                <InputGroup
-                  className="mb-3 d-flex flex-row align-items-center m-4 border"
-                  style={inputGroup1}
-                >
-                  <i className="fas fa-lock" style={userIcon}></i>
+                </div>
 
-                  <Form.Control
+                <div className="m-4">
+                  <i
+                    class="fas fa-lock"
+                    style={{
+                      position: "absolute",
+                      padding: "10px",
+                      margin: "5px",
+                      fontSize: "16px",
+                      borderRight: "1px solid grey",
+                    }}
+                  ></i>
+                  <input
+                    type="text"
+                    className="login"
                     placeholder="Password"
-                    className="login"
-                    style={form_control}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    style={{
+                      padding: "10px",
+                      border: "solid 1px grey",
+                      borderRadius: "20px",
+                      width: "500px",
+                      paddingLeft: "50px",
+                      maxWidth: "114%",
+                    }}
                   />
-                </InputGroup>
-                <InputGroup
-                  className="mb-3 d-flex flex-row align-items-center m-4 border"
-                  style={inputGroup1}
-                >
-                  <i className="fas fa-briefcase" style={userIcon}></i>
+                </div>
 
-                  <Form.Control
-                    placeholder="Occupation"
+                <div className="m-4">
+                  <i
+                    class="fas fa-briefcase"
+                    style={{
+                      position: "absolute",
+                      padding: "10px",
+                      margin: "5px",
+                      fontSize: "16px",
+                      borderRight: "1px solid grey",
+                    }}
+                  ></i>
+                  <input
+                    type="text"
                     className="login"
-                    style={form_control}
+                    placeholder="Occupation"
+                    value={occupation}
+                    onChange={(e) => setOccpation(e.target.value)}
+                    style={{
+                      padding: "10px",
+                      border: "solid 1px grey",
+                      borderRadius: "20px",
+                      width: "500px",
+                      paddingLeft: "50px",
+                      maxWidth: "114%",
+                    }}
                   />
-                </InputGroup>
+                </div>
+       
                 <Button variant="primary" style={loginBtn} onClick={onRegister}>
                   Get Started
                 </Button>

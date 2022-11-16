@@ -11,7 +11,7 @@ function TopHeader() {
       <Nav.Item className="d-flex" style={{ marginLeft: 800 }}>
         <i className="fas fa-map-marker-alt top-header-link nav-top-icon"></i>
 
-        <Nav.Link href="/home" className="top-header-link d-flex">
+        <Nav.Link href="/locator" className="top-header-link d-flex">
           Show Locator
         </Nav.Link>
         <p className="nav-divider">|</p>

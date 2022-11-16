@@ -63,7 +63,7 @@ export const loginBtn = {
   marginLeft: 50,
   top: "50%",
   width: 300,
-  marginTop: 20,
+  marginTop: 10,
   borderRadius: 20,
   fontSize: 18,
   fontWeight: "bold",
