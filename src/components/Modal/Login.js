@@ -1,28 +1,50 @@
 import React from "react";
 import { Button, Col } from "react-bootstrap";
+import { useFormik } from "formik";
+import * as yup from "yup";
 import Divider from "../Divider";
 import {
   diverflex,
   diverText,
   facebook,
   forgot,
-  form_control,
   google,
-  grid1,
-  inputGroup1,
-  inputGroup2,
   loginBtn,
-  modal,
-  modalBody,
-  modaldesc,
-  modalheading,
   otpBtn,
   qus,
   social_flex,
-  userIcon,
 } from "./LoginModal.style";
+import { rebuildData } from "../../utils/validateData";
+import axios from "axios";
 
 function Login({ setAuthType }) {
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: yup.object({
+      email: yup.string().email().required("Email is required"),
+      password: yup
+        .string()
+        .required("Password is required")
+        .min(6, "6 characters required"),
+    }),
+    onSubmit: async (data) => {
+      console.log(data);
+      var formData = rebuildData(data);
+
+      await axios
+        .post("http://192.168.1.195:5000/login/", formData)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  });
+
   return (
     <Col xs={6} className="mt-5">
       <div className="inp-grp">
@@ -50,6 +72,8 @@ function Login({ setAuthType }) {
         <input
           type="text"
           className="login"
+          value={formik.values.email}
+          onChange={formik.handleChange("email")}
           style={{
             padding: "10px",
             border: "solid 1px grey",
@@ -60,6 +84,7 @@ function Login({ setAuthType }) {
           }}
           placeholder="Enter Email/ Mobile number"
         />
+        <small style={{ color: "red" }}>{formik.errors.email}</small>
         <br />
         <br />
 
@@ -76,6 +101,8 @@ function Login({ setAuthType }) {
         <input
           type="text"
           className="login"
+          value={formik.values.password}
+          onChange={formik.handleChange("password")}
           placeholder="Enter Password"
           style={{
             padding: "10px",
@@ -86,11 +113,15 @@ function Login({ setAuthType }) {
             maxWidth: "100%",
           }}
         />
-
+        <small style={{ color: "red" }}>{formik.errors.password}</small>
         <a href="/" style={forgot}>
           Forgot Password?
         </a>
-        <Button variant="primary" style={loginBtn}>
+        <Button
+          variant="primary"
+          style={loginBtn}
+          onClick={formik.handleSubmit}
+        >
           Login
         </Button>
         <div style={diverflex}>
