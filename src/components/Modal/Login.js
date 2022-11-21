@@ -16,6 +16,7 @@ import {
 } from "./LoginModal.style";
 import { rebuildData } from "../../utils/validateData";
 import axios from "axios";
+import CSRFToken from "../../utils/cookies";
 
 function Login({ setAuthType }) {
   const formik = useFormik({
@@ -48,17 +49,6 @@ function Login({ setAuthType }) {
   return (
     <Col xs={6} className="mt-5">
       <div className="inp-grp">
-        {/* <InputGroup
-                    className="mb-3 d-flex flex-row align-items-center m-4 border"
-                    style={inputGroup1}
-                  >
-                    <i className="far fa-user" style={userIcon}></i>
-
-                    <Form.Control
-                      placeholder="Username"
-                      className="login"
-                    />
-                  </InputGroup> */}
         <i
           class="fas fa-user"
           style={{
@@ -114,7 +104,7 @@ function Login({ setAuthType }) {
           }}
         />
         <small style={{ color: "red" }}>{formik.errors.password}</small>
-        <a href="/" style={forgot}>
+        <a href="#" style={forgot} onClick={() => setAuthType("forgot")}>
           Forgot Password?
         </a>
         <Button

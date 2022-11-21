@@ -60,9 +60,9 @@ export const forgot = {
 };
 
 export const loginBtn = {
-  marginLeft: 50,
+  marginLeft: 10,
   top: "50%",
-  width: 300,
+  width: 350,
   marginTop: 10,
   borderRadius: 20,
   fontSize: 18,

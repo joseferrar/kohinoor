@@ -30,6 +30,7 @@ import {
 import axios from "axios";
 import Login from "./Login";
 import Register from "./Register";
+import Forgot from "./Forgot";
 
 function LoginModal({ show, setShow }) {
   const handleClose = () => setShow(false);
@@ -58,6 +59,11 @@ function LoginModal({ show, setShow }) {
         console.log(err);
       });
   };
+
+  const ForgotPassword = () => {
+    setAuthType("forgot");
+  };
+
   return (
     <div>
       <Modal show={show} size="lg" style={{ marginTop: 150 }}>
@@ -76,11 +82,9 @@ function LoginModal({ show, setShow }) {
               </div>
             </Col>
 
-            {authType === "login" ? (
-             <Login setAuthType={setAuthType}/>
-            ) : (
-              <Register setAuthType={setAuthType}/>
-            )}
+            {authType === "login" && <Login setAuthType={setAuthType} />}
+            {authType === "register" && <Register setAuthType={setAuthType} />}
+            {authType === "forgot" && <Forgot setAuthType={setAuthType} />}
           </Row>
         </Modal.Body>
       </Modal>

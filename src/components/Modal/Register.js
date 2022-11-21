@@ -99,7 +99,7 @@ function Register({ setAuthType }) {
                 padding: "10px",
                 border: "solid 1px grey",
                 borderRadius: "20px",
-                width: "500px",
+                width: "350px",
                 paddingLeft: "50px",
                 maxWidth: "114%",
               }}
@@ -127,7 +127,7 @@ function Register({ setAuthType }) {
                 padding: "10px",
                 border: "solid 1px grey",
                 borderRadius: "20px",
-                width: "500px",
+                width: "350px",
                 paddingLeft: "50px",
                 maxWidth: "114%",
               }}
@@ -155,7 +155,7 @@ function Register({ setAuthType }) {
                 padding: "10px",
                 border: "solid 1px grey",
                 borderRadius: "20px",
-                width: "500px",
+                width: "350px",
                 paddingLeft: "50px",
                 maxWidth: "114%",
               }}
@@ -183,7 +183,7 @@ function Register({ setAuthType }) {
                 padding: "10px",
                 border: "solid 1px grey",
                 borderRadius: "20px",
-                width: "500px",
+                width: "350px",
                 paddingLeft: "50px",
                 maxWidth: "114%",
               }}
@@ -211,7 +211,7 @@ function Register({ setAuthType }) {
                 padding: "10px",
                 border: "solid 1px grey",
                 borderRadius: "20px",
-                width: "500px",
+                width: "350px",
                 paddingLeft: "50px",
                 maxWidth: "114%",
               }}

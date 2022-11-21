@@ -296,3 +296,8 @@ input.login:focus {
 .modal-content {
   border-radius: 0px !important;
 }
+
+.welcome_sidebar_div {
+  font-weight: 400 !important;
+  font-size: 1.5rem !important;
+}
