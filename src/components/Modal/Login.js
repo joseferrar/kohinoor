@@ -45,7 +45,13 @@ function Login({ setAuthType }) {
         });
     },
   });
+  const getCSRFToken = async () => {
+    const response = await axios.get('http://192.168.1.195:5000/getCSRFToken');
+    axios.defaults.headers.post['X-CSRF-Token'] = response.data.CSRFToken;
 
+ };
+
+ console.log(getCSRFToken());
   return (
     <Col xs={6} className="mt-5">
       <div className="inp-grp">

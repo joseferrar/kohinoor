@@ -10,9 +10,12 @@ import TopHeader from "./components/Headers/TopHeader";
 import FixedHeader from "./components/Headers/FixedHeader";
 import Contact from "./pages/Contact";
 import Locator from "./pages/Locator";
+import axios from "axios";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const location = useLocation();
+
   return (
     <div>
       <TopHeader />
@@ -26,6 +29,7 @@ function App() {
           <Route key={route} {...route} />
         ))}
       </Routes>
+      <Footer />
     </div>
   );
 }

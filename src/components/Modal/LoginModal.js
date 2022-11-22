@@ -36,34 +36,6 @@ function LoginModal({ show, setShow }) {
   const handleClose = () => setShow(false);
   const [authType, setAuthType] = useState("login");
 
-  const [username, setUserName] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [occupation, setOccpation] = useState("");
-
-  const onRegister = (e) => {
-    e.preventDefault();
-    var formData = new FormData();
-    formData.append("uname", username);
-    formData.append("mobile", mobile);
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("occupation", occupation);
-    axios
-      .post("http://192.168.1.195:5000/signup/", formData)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const ForgotPassword = () => {
-    setAuthType("forgot");
-  };
-
   return (
     <div>
       <Modal show={show} size="lg" style={{ marginTop: 150 }}>

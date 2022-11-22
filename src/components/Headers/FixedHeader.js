@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
@@ -10,6 +11,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import "./FixedHeader.css";
 
 function CollapsibleExample() {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -115,27 +117,30 @@ function CollapsibleExample() {
           </p>
 
           <i
+            onClick={() => navigate("/cart")}
             className="fas fa-shopping-cart"
             style={{
               color: "#fed700",
               fontSize: 18,
               width: 100,
-              textAlign: "center"
+              textAlign: "center",
+              cursor: "pointer",
             }}
           ></i>
           <p
+            onClick={() => navigate("/cart")}
             style={{
               marginLeft: -32,
               color: "#fed700",
               fontSize: 14,
               width: 50,
+              cursor: "pointer",
             }}
           >
             My Cart
           </p>
         </div>
       </Container>
-
     </Navbar>
   );
 }
