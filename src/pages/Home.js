@@ -35,7 +35,6 @@ function Home() {
         <img src="https://d330d33p6rktbx.cloudfront.net/filters:format(webp)/images/static_banner/101.png" />
       </div>
       <VideoCarousel/>
-      <Footer />
     </div>
   );
 }
